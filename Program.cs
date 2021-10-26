@@ -73,6 +73,22 @@ namespace ProjetoVendas
                         break;
                     case 4:
                         Console.WriteLine("Opção escolhida: 4");
+
+                        Venda novaVenda = new();
+                        Console.WriteLine("Digite o nome do cliente: ");
+                        novaVenda.NomeCliente = Console.ReadLine();
+                        Console.WriteLine("Digite o ID do produto que se deseja comprar: ");
+                        novaVenda.IdProduto = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Digite a quantidade do produto que deseja comprar: ");
+                        novaVenda.Quantidade = Convert.ToDecimal(Console.ReadLine());
+
+                        string mensagemValidacao = "";
+                        bool registrouVenda = novaVenda.RegistrarVenda(out mensagemValidacao);
+                        if (registrouVenda)
+                            Console.WriteLine("Venda registrada com sucesso!");
+                        else
+                            Console.WriteLine(mensagemValidacao);
+
                         opcao = 0;
                         break;
                 }
