@@ -51,6 +51,41 @@ namespace ProjetoVendas
         {
             List<Produto> listaProdutos = new();
 
+            MySqlConnection conn = new("server=127.0.0.1;user=root;password=root;database=bd_vendas");
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new();
+                cmd.Connection = conn;
+                
+                if (codProduto == null)
+                    cmd.CommandText = "select CodProduto, Nome, Estoque, Valor from produtos";
+                else
+                {
+                    cmd.CommandText = "select CodProduto, Nome, Estoque, Valor from produtos where CodProduto = @codproduto";
+                    cmd.Parameters.AddWithValue("@codproduto", codProduto);
+                }
+
+                var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Produto produto = new();
+                    produto.CodProduto = Convert.ToInt32(dr["CodProduto"]);
+                    produto.Nome = Convert.ToString(dr["Nome"]);
+                    produto.Estoque = Convert.ToDecimal(dr["Estoque"]);
+                    produto.Valor = Convert.ToDecimal(dr["Valor"]);
+                    listaProdutos.Add(produto);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
             return listaProdutos;
         }
     }

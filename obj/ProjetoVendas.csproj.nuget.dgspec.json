@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\ProjetoVendas.csproj": {}
+    "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\ProjetoVendas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\ProjetoVendas.csproj": {
+    "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\ProjetoVendas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\ProjetoVendas.csproj",
+        "projectUniqueName": "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\ProjetoVendas.csproj",
         "projectName": "ProjetoVendas",
-        "projectPath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\ProjetoVendas.csproj",
+        "projectPath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\ProjetoVendas.csproj",
         "packagesPath": "C:\\Users\\papon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\obj\\",
+        "outputPath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\papon\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3jwmDquGWMDGG/O7subH+7cuVroHKaGRVTas4CgtlnV2O22YcVss8LPC3vfiS8BVfCvJTcKIP3Rd8owsgLwq8w==",
+  "dgSpecHash": "pUvD5rWWH6nnyjXso1v1u1LjGe385Zf7waf9tgqpzliZLnwrG3eG1ULZr/m7Rafrd6YXaQRu5pj495utNJjdRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\ProjetoVendas\\ProjetoVendas.csproj",
+  "projectFilePath": "C:\\Users\\papon\\Desktop\\Treinamento C#\\projetovendas\\ProjetoVendas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\papon\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\papon\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

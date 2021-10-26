@@ -50,10 +50,25 @@ namespace ProjetoVendas
                         break;
                     case 2:
                         Console.WriteLine("Opção escolhida: 2");
+                        
+                        var listaProdutos = new Produto().SelecionarProdutos();
+                        foreach(var item in listaProdutos)
+                            Console.WriteLine($"CodProduto: {item.CodProduto}, Nome: {item.Nome}, Estoque: {item.Estoque}, Valor: {item.Valor}");
+
                         opcao = 0;
                         break;
                     case 3:
                         Console.WriteLine("Opção escolhida: 3");
+
+                        Console.WriteLine("Digite o ID do produto que deseja visualizar: ");
+                        int codProduto = Convert.ToInt32(Console.ReadLine());
+                        var listaProduto = new Produto().SelecionarProdutos(codProduto);
+                        foreach(var item in listaProduto)
+                            Console.WriteLine($"CodProduto: {item.CodProduto}, Nome: {item.Nome}, Estoque: {item.Estoque}, Valor: {item.Valor}");
+
+                        if (listaProduto.Count == 0)
+                            Console.WriteLine("Não houve produto selecionado");
+
                         opcao = 0;
                         break;
                     case 4:
