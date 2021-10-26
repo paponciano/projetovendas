@@ -30,22 +30,28 @@ namespace ProjetoVendas
                 cmd.Connection = conn;
                 cmd.CommandText = "select Estoque from produtos where CodProduto = @codigoproduto";
                 cmd.Parameters.AddWithValue("@codigoproduto", this.IdProduto);
-                decimal estoque = Convert.ToDecimal(cmd.ExecuteScalar());
-
-                if (estoque < this.Quantidade)
-                    mensagemValidacao = "Estoque não é suficiente. Venda não efetivada";
+                object resultado = cmd.ExecuteScalar();
+                if (resultado == null)
+                    mensagemValidacao = "Código de Produto inválido";
                 else
                 {
-                    cmd.CommandText = "insert into vendas (id_produto, nome_cliente, quantidade, data_venda) values (@codigoproduto, @nomecliente, @quantidade, now())";
-                    cmd.Parameters.AddWithValue("@nomecliente", this.NomeCliente);
-                    cmd.Parameters.AddWithValue("@quantidade", this.Quantidade);
-                    cmd.ExecuteNonQuery();
+                    decimal estoque = Convert.ToDecimal(resultado);
 
-                    cmd.CommandText = "update produtos set estoque = @novoestoque where CodProduto = @codigoproduto";
-                    cmd.Parameters.AddWithValue("@novoestoque", estoque - this.Quantidade);
-                    cmd.ExecuteNonQuery();
+                    if (estoque < this.Quantidade)
+                        mensagemValidacao = "Estoque não é suficiente. Venda não efetivada";
+                    else
+                    {
+                        cmd.CommandText = "insert into vendas (id_produto, nome_cliente, quantidade, data_venda) values (@codigoproduto, @nomecliente, @quantidade, now())";
+                        cmd.Parameters.AddWithValue("@nomecliente", this.NomeCliente);
+                        cmd.Parameters.AddWithValue("@quantidade", this.Quantidade);
+                        cmd.ExecuteNonQuery();
 
-                    registrouVenda = true;
+                        cmd.CommandText = "update produtos set estoque = @novoestoque where CodProduto = @codigoproduto";
+                        cmd.Parameters.AddWithValue("@novoestoque", estoque - this.Quantidade);
+                        cmd.ExecuteNonQuery();
+
+                        registrouVenda = true;
+                    }
                 }
             }
             catch(Exception ex)
